@@ -82,6 +82,18 @@
 
         <p style="font-weight: bolder">Clique <a href="https://play.google.com/apps/testing/br.com.buttonbox" target="_blank">aqui para entrar no teste e fazer o Download do app.</a></p>
 
+        <div style="position: relative; width: 100%; padding-top: 56.25%;">
+            <iframe 
+                src="https://www.youtube.com/embed/vOdB5KYLeGs?si=zk-JZ-f1QsoHHsW9" 
+                title="YouTube video player" 
+                frameborder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                referrerpolicy="strict-origin-when-cross-origin" 
+                allowfullscreen 
+                style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
+            </iframe>
+        </div>
+
         <hr>
         <p>Caso abra essa tela, quer dizer que você não está logado, ou está logado com outra conta no navegador, para mudar a conta ou logar, basta clicar naquele botão que está circulado e selecionar a conta ou digitar as credenciais da sua conta para logar no Google.</p>
         <hr>
