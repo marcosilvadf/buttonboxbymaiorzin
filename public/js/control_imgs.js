@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-    $('img').on('click', function () { 
+    $('.img_clicked').on('click', function () { 
         let imgSrc = $(this).attr('src');
 
         $('#imageOverlay').remove();
