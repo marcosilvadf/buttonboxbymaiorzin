@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\EmailTestController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,9 +15,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('Main.index');
-});
+    return view('main.index');
+})->name('home');
+
+Route::get('/signin', [EmailTestController::class, 'store'])->name('email-test.store');
 
 Route::get('/politicadeprivacidade', function () {
-    return view('PrivacyPolicy.index');
+    return view('privacy');
 });
