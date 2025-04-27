@@ -89,8 +89,6 @@
         <p style="font-weight: bolder"><a href="{{asset('programsv5/buttonboxbymaiorzin.zip')}}">Clique aqui para baixar o Button Box.</a></p>
         <hr>
 
-        <hr>
-
         <h2>Tutorial</h2>
 
         <div style="position: relative; width: 100%; padding-top: 56.25%;">
