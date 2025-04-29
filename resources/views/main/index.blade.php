@@ -57,9 +57,30 @@
             <li><a href="https://discord.gg/GrxzDY8CX3" target="_blank">Discord</a></li>
         </ul>
 
-        <h2>Baixe diretamente da Play Store clicando no link abaixo</h2>        
+        <h2>Participe do programa de testadores:</h2>
 
-        <p style="font-weight: bolder">Clique <a href="https://play.google.com/store/apps/details?id=br.com.buttonbox" target="_blank">aqui para fazer o Download do app.</a></p>
+        @if (session()->has('msg'))
+            <div class="alert alert-success" role="alert">
+                {{session()->get('msg')}}
+            </div>
+        @endif  
+
+        <form class="col-xl-6 col-sm-12 mb-2" action="{{route('email-test.store')}}" method="get" id="emailForm">
+            <div class="form-group">
+                <label for="email">E-mail da Play Store:</label>
+                <input type="email" class="form-control" name="email" id="email" aria-describedby="emailHelp" placeholder="E-mail" required>
+                <small id="emailHelp" class="form-text text-muted">Adicione ou consulte seu e-mail!</small>
+                @error('email')
+                <br>
+                    <span class="text-danger">
+                        {{ $message }}
+                    </span>
+                @enderror
+            </div>
+            <button type="submit" class="btn btn-primary mt-2" id="submitButton">Enviar/Consultar</button>                        
+        </form>
+
+        <p style="font-weight: bolder">Clique <a href="https://play.google.com/apps/testing/br.com.buttonbox" target="_blank">aqui para entrar no teste e fazer o Download do app.</a></p>
 
         <hr>
 
