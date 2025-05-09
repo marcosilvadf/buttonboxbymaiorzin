@@ -5,16 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-    <meta property="og:title" content="PMv3 - Jogo Android/PC">
-    <meta property="og:description" content="PMv3 é um jogo baseado no mod police para gta sa android do Maiorzin">
+    <meta property="og:title" content="Dashboard / Button Box Android para ETS2">
+    <meta name="twitter:title" content="Dashboard / Button Box Android para ETS2">
+
+    <meta property="og:description" content="Esse app permite transformar seu celular em um Button Box para o ETS2">
+    <meta name="twitter:description" content="Esse app permite transformar seu celular em um Button Box para o ETS2">
+
     <meta property="og:image" content="{{asset('images/icon/logotod192.png')}}?{{config('app.app_version')}}">
+    <meta name="twitter:image" content="{{asset('images/icon/logotod192.png')}}?{{config('app.app_version')}}">
+
     <meta property="og:url" content="{{url()->current()}}">
     <meta property="og:type" content="website">
+    <link rel="canonical" href="{{ url()->current() }}">
+
+    <meta name="keywords" content="button box, simulador de caminhão, Euro Truck Simulator, American Truck Simulator, ETS2, ATS, button box app, painel virtual, botão virtual, simulador de direção, app button box ETS2, controle para simulador, button box Android, painel de botões, truck simulator accessories, truck sim button box, controle personalizado ETS2, telemetria ETS2, app de telemetria, simulador com botão, painel para ETS2">
 
     <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="PMv3 - Jogo Android/PC">
-    <meta name="twitter:description" content="PMv3 é um jogo baseado no mod police para gta sa android do Maiorzin">
-    <meta name="twitter:image" content="{{asset('images/icon/logotod192.png')}}?{{config('app.app_version')}}">
     
     <link rel="icon" href="{{asset('images/icon/logotod16.jpg')}}?{{config('app.app_version')}}" sizes="16x16" type="image/jpg">
     <link rel="icon" href="{{asset('images/icon/logotod32.jpg')}}?{{config('app.app_version')}}" sizes="32x32" type="image/jpg">
