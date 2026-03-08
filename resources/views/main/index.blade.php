@@ -1,5 +1,5 @@
 @extends('layout.app')
-@section('title', 'Início - Button Box')
+@section('title', 'Button Box para ETS2 Grátis | Dashboard para Euro Truck Simulator 2')
 
 @section('css')
     <style>
@@ -47,7 +47,19 @@
 
 @section('content_body')
     <div class="container">        
-        <h2>Button Box (By Maiorzin)</h2>
+        <h1 class="h2">Dashboard e Button Box para Euro Truck Simulator 2 (ETS2)</h1>
+        <p>
+        Este dashboard e button box para ETS2 permite transformar celular, tablet ou outro monitor em um painel interativo para Euro Truck Simulator 2.
+        </p>
+
+        <p>
+        Com ele você pode acompanhar informações importantes do caminhão em tempo real como velocidade, marcha, combustível, RPM e outras informações de telemetria do ETS2.
+        </p>
+
+        <p>
+        A ferramenta funciona conectada ao PC e é ideal para quem deseja montar um cockpit de simulador mais imersivo usando um button box no celular.
+        </p>
+
         <p><strong>Button Box</strong> é um app pra Android, desenvolvido por mim (Maiorzin), onde te proporciona uma gameplay aprimorada em simuladores de pc, simulando um button box no seu celular, nessa fase inicial ele tem compatibilidade com o Euro Truck Simulator 2 (ETS2), mas se a ideia for aceita pelos usuários, terá funções para outros jogos.</p>
         <p>Aproveite e me siga nas redes sociais abaixo e entre no meu servidor no Discord (DC).</p>
 

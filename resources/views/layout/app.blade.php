@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
+
+    <meta name="description" content="@yield('description', 'Use um dashboard e button box para ETS2 no celular ou PC. Veja velocidade, combustível, marcha e outras informações do caminhão em tempo real.')">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -16,9 +18,7 @@
 
     <meta property="og:url" content="{{url()->current()}}">
     <meta property="og:type" content="website">
-    <link rel="canonical" href="{{ url()->current() }}">
-
-    <meta name="keywords" content="button box, simulador de caminhão, Euro Truck Simulator, American Truck Simulator, ETS2, ATS, button box app, painel virtual, botão virtual, simulador de direção, app button box ETS2, controle para simulador, button box Android, painel de botões, truck simulator accessories, truck sim button box, controle personalizado ETS2, telemetria ETS2, app de telemetria, simulador com botão, painel para ETS2">
+    <link rel="canonical" href="{{ url()->current() }}">    
 
     <meta name="twitter:card" content="summary">
     
@@ -34,7 +34,7 @@
             <div class="col-sm-1 col-lg-1">
                 <img class="img-fluid rounded" style="width: 50px" src="{{asset('images/icon/logotod192.png')}}?{{config('app.app_version')}}" alt="">
             </div>
-            <h1 class="col-sm-9 col-lg-3">Button Box</h1>
+            <span class="col-sm-9 col-lg-3 h1">Button Box</span>
         </div>
         <hr>
     </div>
