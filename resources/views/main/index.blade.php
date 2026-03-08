@@ -1,5 +1,5 @@
 @extends('layout.app')
-@section('title', 'Button Box para ETS2 Grátis | Dashboard para Euro Truck Simulator 2')
+@section('title', 'Button Box para ETS2 Grátis | Painel para Euro Truck Simulator 2')
 
 @section('css')
     <style>
