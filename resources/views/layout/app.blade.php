@@ -22,8 +22,7 @@
 
     <meta name="twitter:card" content="summary">
     
-    <link rel="icon" href="{{asset('images/icon/logotod16.jpg')}}?{{config('app.app_version')}}" sizes="16x16" type="image/jpg">
-    <link rel="icon" href="{{asset('images/icon/logotod32.jpg')}}?{{config('app.app_version')}}" sizes="32x32" type="image/jpg">
+    <link rel="shortcut icon" href="{{asset('images/icon/favicon.ico')}}" type="image/x-icon">
     <title>@yield('title')</title>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     @yield('css')
