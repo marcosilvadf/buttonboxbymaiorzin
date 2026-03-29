@@ -11,9 +11,9 @@
             @if ($plan && $plan->user_type_id == 2)
                 <span class="fw-bold my-text-secondary">Plano: {{$plan->plan->name}} - Vencimento: {{\Carbon\Carbon::parse($plan->expiration)->format('d/m/Y')}}</span> <br>
                 @if (\Carbon\Carbon::parse($plan->expiration)->isPast())
-                    <span class="fw-bolder text-danger">Expirou</span> - <a href="{{route('sign.plan')}}">Clique aqui para renovar</a>
+                    <span class="fw-bolder text-danger">Expirou</span> - <a href="{{route('payment')}}">Clique aqui para renovar</a>
                 @else                        
-                    <span class="fw-bolder text-green">Ativo</span> @if (auth()->user()->expiring_soon) - <a href="{{route('sign.plan')}}">Clique aqui para renovar</a> @endif
+                    <span class="fw-bolder text-green">Ativo</span> @if (auth()->user()->expiring_soon) - <a href="{{route('payment')}}">Clique aqui para renovar</a> @endif
                 @endif
             @else
                 <span class="fw-bold my-text-secondary">Plano: Free - desbloqueie o acesso ao button box - <a href="{{route('plan')}}" class="btn btn-dark">Saiba mais</a></span>

@@ -28,6 +28,11 @@ class ApiPanelController extends Controller
             return abort(401);
         }
 
+        if(!$user->is_pro)
+        {
+            return abort(401);
+        }
+
         $panel = $user->panel->where('current', true)->first();
 
         if(!$panel) {
