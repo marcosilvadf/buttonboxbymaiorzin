@@ -23,8 +23,8 @@
         <meta property="og:description" content="Esse app permite transformar seu celular em um Button Box para o ETS2">
         <meta name="twitter:description" content="Esse app permite transformar seu celular em um Button Box para o ETS2">
 
-        <meta property="og:image" content="{{asset('icon/android-chrome-192x192.png')}}?{{config('app.app_version')}}">
-        <meta name="twitter:image" content="{{asset('icon/android-chrome-192x192.png')}}?{{config('app.app_version')}}">
+        <meta property="og:image" content="{{config('app.url') . asset('/icon/android-chrome-192x192.png')}}?{{config('app.app_version')}}">
+        <meta name="twitter:image" content="{{config('app.url') . asset('/icon/android-chrome-192x192.png')}}?{{config('app.app_version')}}">
 
         <meta property="og:url" content="{{url()->current()}}">
         <meta property="og:type" content="website">

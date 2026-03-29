@@ -15,11 +15,11 @@
     <meta property="og:title" content="{{ $mod->title }} para {{ $mod->game->name }}">
     <meta property="og:description" content="{{ Str::limit(strip_tags($mod->description), 150) }}">
     @if ($mod->images->first())            
-            <meta property="og:image" content="{{ $mod->images->first()->url }}?{{ config('app.app_version') }}">
-            <meta name="twitter:image" content="{{ $mod->images->first()->url }}?{{ config('app.app_version') }}">
+            <meta property="og:image" content="{{config('app.url') . $mod->images->first()->url }}?{{ config('app.app_version') }}">
+            <meta name="twitter:image" content="{{config('app.url') . $mod->images->first()->url }}?{{ config('app.app_version') }}">
         @else
-            <meta property="og:image" content="{{ asset('icon/android-chrome-192x192.png') }}?{{ config('app.app_version') }}">
-            <meta name="twitter:image" content="{{ asset('icon/android-chrome-192x192.png') }}?{{ config('app.app_version') }}">
+            <meta property="og:image" content="{{config('app.url') . asset('icon/android-chrome-192x192.png') }}?{{ config('app.app_version') }}">
+            <meta name="twitter:image" content="{{config('app.url') . asset('icon/android-chrome-192x192.png') }}?{{ config('app.app_version') }}">
         @endif
     <meta property="og:url" content="{{ url()->current() }}">
     <meta property="og:type" content="article">

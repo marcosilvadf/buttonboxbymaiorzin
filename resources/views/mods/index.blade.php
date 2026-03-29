@@ -10,7 +10,7 @@
     {{-- Open Graph --}}
     <meta property="og:title" content="Mods para ETS2 e ATS | Caminhões, Mapas e Muito Mais">
     <meta property="og:description" content="Explore mods para Euro Truck Simulator 2 e American Truck Simulator e personalize seu jogo com novos caminhões, mapas e recursos.">
-    <meta property="og:image" content="{{ asset('icon/android-chrome-192x192.png') }}?{{ config('app.app_version') }}">
+    <meta property="og:image" content="{{config('app.url') . asset('icon/android-chrome-192x192.png') }}?{{ config('app.app_version') }}">
     <meta property="og:url" content="{{ url()->current() }}">
     <meta property="og:type" content="website">
 
@@ -18,7 +18,7 @@
     <meta name="twitter:card" content="summary">
     <meta name="twitter:title" content="Mods ETS2 e ATS para Download">
     <meta name="twitter:description" content="Baixe mods para Euro Truck Simulator 2 e American Truck Simulator e deixe seu jogo mais completo.">
-    <meta name="twitter:image" content="{{ asset('icon/android-chrome-192x192.png') }}?{{ config('app.app_version') }}">
+    <meta name="twitter:image" content="{{config('app.url') . asset('icon/android-chrome-192x192.png') }}?{{ config('app.app_version') }}">
 
     <link rel="canonical" href="{{ url()->current() }}">
 @endsection
