@@ -57,7 +57,9 @@ return [
 
     'url' => env('APP_URL', 'http://localhost'),
 
-    'asset_url' => env('ASSET_URL'),
+    'version' => env('APP_VERSION', '0.0.0.0'),
+
+    'asset_url' => env('ASSET_URL', '/'),
 
     /*
     |--------------------------------------------------------------------------
@@ -70,7 +72,7 @@ return [
     |
     */
 
-    'timezone' => 'UTC',
+    'timezone' => 'America/Sao_Paulo',
 
     /*
     |--------------------------------------------------------------------------

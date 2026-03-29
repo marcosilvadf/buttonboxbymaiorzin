@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\MercadoPagoController;
+use App\Http\Controllers\ApiPanelController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -16,4 +18,14 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
+});
+
+Route::prefix('/mercado-pago')->group(function() {
+    Route::post('/', [MercadoPagoController::class, 'webhook'])->name('mercadopagowebhook');
+});
+
+Route::get('/hash-user/{hash}', [ApiPanelController::class, 'returnHtmlHashUser']);
+
+Route::get('version', function() {
+    return response()->json('1.0.0.0', 200);
 });

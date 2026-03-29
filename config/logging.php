@@ -126,6 +126,24 @@ return [
         'emergency' => [
             'path' => storage_path('logs/laravel.log'),
         ],
+
+        'mp_error' => [
+            'driver' => 'single',
+            'path' => storage_path('logs/mp_error.log'),
+            'level' => 'error'
+        ],
+
+        'mp_info' => [
+            'driver' => 'single',
+            'path' => storage_path('logs/mp_info.log'),
+            'level' => 'info',
+        ],
+
+        'mp_notification' => [
+            'driver' => 'single',
+            'path' => storage_path('logs/mp_notification.log'),
+            'level' => 'info',
+        ],
     ],
 
 ];

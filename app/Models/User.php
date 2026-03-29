@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use App\Notifications\ResetPasswordNotification;
+use Carbon\Carbon;
 
 class User extends Authenticatable
 {
@@ -18,9 +20,13 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
+        'user_type_id',
         'name',
         'email',
         'password',
+        'first_name',
+        'last_name',
+        'link_code'
     ];
 
     /**
@@ -29,6 +35,7 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $hidden = [
+        'link_code',
         'password',
         'remember_token',
     ];
@@ -40,6 +47,67 @@ class User extends Authenticatable
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
-        'password' => 'hashed',
     ];
+
+    public function sendPasswordResetNotification($token)
+    {
+        $this->notify(new ResetPasswordNotification($token));
+    }
+
+    public function getRouteKeyName()
+    {
+        return 'name';
+    }
+
+    public function userType()
+    {
+        return $this->belongsTo(UserType::class);
+    }
+
+    public function expirationUserPlan()
+    {
+        return $this->hasOne(ExpirationUserPlan::class);
+    }
+
+    public function paymentPlanUser()
+    {
+        return $this->hasMany(PaymentPlanUser::class);
+    }
+
+    public function mods()
+    {
+        return $this->hasMany(Mod::class, 'user_id');
+    }
+
+    public function getIsProAttribute()
+    {
+        return $this->expirationUserPlan
+            && $this->expirationUserPlan->user_type_id == 2
+            && $this->expirationUserPlan->expiration->greaterThanOrEqualTo(now());
+    }
+
+    public function panel()
+    {
+        return $this->hasMany(UserPanel::class);
+    }
+
+    public function getExpiringSoonAttribute()
+    {
+        if (
+            !$this->expirationUserPlan ||
+            $this->expirationUserPlan->user_type_id != 2 ||
+            !$this->expirationUserPlan->expiration
+        ) {
+            return true;
+        }
+
+        $expiration = $this->expirationUserPlan->expiration;
+
+        if ($expiration->isPast()) {
+            return true;
+        }
+
+        return $this->expirationUserPlan->expiration->isFuture()
+                && $this->expirationUserPlan->expiration->lte(now()->addDays(3)->endOfDay());
+    }
 }

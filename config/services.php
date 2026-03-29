@@ -31,4 +31,12 @@ return [
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
 
+    'mercado_pago' => [
+        'access_token' => env('MERCADO_PAGO_ACCESS_TOKEN'),
+        'public_key' => env('MERCADO_PAGO_PUBLIC_KEY'),
+        'route_success' => config('app.url') . env('MERCADO_PAGO_SUCCESS_ROUTE'),
+        'route_failure' => config('app.url') . env('MERCADO_PAGO_FAILURE_ROUTE'),
+        'route_pending' => config('app.url') . env('MERCADO_PAGO_PENDING_ROUTE'),
+    ],
+
 ];
