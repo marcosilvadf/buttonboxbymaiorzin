@@ -19,11 +19,11 @@
                 <span class="fw-bold my-text-secondary">Plano: Free - desbloqueie o acesso ao button box - <a href="{{route('plan')}}" class="btn btn-dark">Saiba mais</a></span>
             @endif
         </div>
-        <div class="d-flex align-items-center gap-2 mt-2">
+        <div class="row align-items-center gap-2 mt-2">
             <input 
                 type="text" 
                 id="codeInput" 
-                class="form-control w-auto"
+                class="form-control"
                 value="••••••••-••••••••••••••••"
                 data-real="{{ auth()->user()->link_code }}-{{ md5(auth()->user()->id) }}"
                 readonly
