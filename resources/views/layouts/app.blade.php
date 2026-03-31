@@ -57,7 +57,7 @@
         @endif
     </div>
 
-    <section class="mx-5 content">
+    <section class="mx-2 mx-md-5 content">
         @yield('content')
     </section>
 
