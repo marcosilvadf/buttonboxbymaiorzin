@@ -24,6 +24,14 @@ Route::get('/', function () {
     return view('main.index');
 })->name('index');
 
+Route::get('/politicadeprivacidade', function () {
+    return view('main.privacy_policy');
+})->name('privacypolicy');
+
+Route::get('/termos-de-uso', function () {
+    return view('main.terms');
+})->name('terms');
+
 Route::get('/dashboard',[ProfileController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {

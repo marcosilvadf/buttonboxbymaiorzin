@@ -27,13 +27,17 @@ class StoreUserRequest extends FormRequest
             'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:users,email'],
             'first_name' => ['required', 'string', 'max:255', 'regex:/^[\pL\s]+$/u'],
             'last_name' => ['required', 'string', 'max:255', 'regex:/^[\pL\s]+$/u'],
-            'password' => ['required', 'confirmed', Rules\Password::defaults()]
+            'password' => ['required', 'confirmed', Rules\Password::defaults()],
+            'terms' => 'required|accepted'
         ];
     }
 
     public function messages(): array
     {
         return [
+            'terms.required' => 'O campo de concordo com os termos é obrigatório',
+            'terms.accepted' => 'Não é possível criar uma conta sem aceitar os termos ou a política de privacidade',
+
             'name.required' => 'O nome de usuário é obrigatório.',
             'name.unique' => 'Este nome de usuário já está em uso.',
             'name.max' => 'O nome de usuário deve ter no máximo :max caracteres.',

@@ -1,42 +1,44 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="ie=edge" http-equiv="X-UA-Compatible">
     <title>@yield('title', 'Button Box para ETS2 | Painel para Euro Truck Simulator 2')</title>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
-    <link rel="stylesheet" href="{{asset('css/style.css')}}?{{config('app.version')}}">
-    <link rel="shortcut icon" href="{{asset('icon/favicon.ico')}}?{{config('app.version')}}" type="image/x-icon">
-    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <link href="{{ asset('css/style.css') }}?{{ config('app.version') }}" rel="stylesheet">
+    <link href="{{ asset('icon/favicon.ico') }}?{{ config('app.version') }}" rel="shortcut icon" type="image/x-icon">
+    <meta content="{{ csrf_token() }}" name="csrf-token">
     @hasSection('meta')
         @yield('meta')
     @else
-        <meta name="description" content="Use um dashboard e button box para ETS2 no celular ou PC. Veja velocidade, combustível, marcha e outras informações do caminhão em tempo real.">
+        <meta content="Use um dashboard e button box para ETS2 no celular ou PC. Veja velocidade, combustível, marcha e outras informações do caminhão em tempo real." name="description">
         <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
+        <meta content="ie=edge" http-equiv="X-UA-Compatible">
 
-        <meta property="og:title" content="Dashboard / Button Box Android para ETS2">
-        <meta name="twitter:title" content="Dashboard / Button Box Android para ETS2">
+        <meta content="Dashboard / Button Box Android para ETS2" property="og:title">
+        <meta content="Dashboard / Button Box Android para ETS2" name="twitter:title">
 
-        <meta property="og:description" content="Esse app permite transformar seu celular em um Button Box para o ETS2">
-        <meta name="twitter:description" content="Esse app permite transformar seu celular em um Button Box para o ETS2">
+        <meta content="Esse app permite transformar seu celular em um Button Box para o ETS2" property="og:description">
+        <meta content="Esse app permite transformar seu celular em um Button Box para o ETS2" name="twitter:description">
 
-        <meta property="og:image" content="{{config('app.url') . asset('/icon/android-chrome-192x192.png')}}?{{config('app.app_version')}}">
-        <meta name="twitter:image" content="{{config('app.url') . asset('/icon/android-chrome-192x192.png')}}?{{config('app.app_version')}}">
+        <meta content="{{ config('app.url') . asset('/icon/android-chrome-192x192.png') }}?{{ config('app.app_version') }}" property="og:image">
+        <meta content="{{ config('app.url') . asset('/icon/android-chrome-192x192.png') }}?{{ config('app.app_version') }}" name="twitter:image">
 
-        <meta property="og:url" content="{{url()->current()}}">
-        <meta property="og:type" content="website">
-        <link rel="canonical" href="{{ url()->current() }}">    
+        <meta content="{{ url()->current() }}" property="og:url">
+        <meta content="website" property="og:type">
+        <link href="{{ url()->current() }}" rel="canonical">
 
-        <meta name="twitter:card" content="summary">
+        <meta content="summary" name="twitter:card">
     @endif
 </head>
-<body>    
+
+<body>
     <x-menu-component>
     </x-menu-component>
-    
+
     <div class="mx-3">
         @if (session('status'))
             <div class="alert alert-success mt-3">
@@ -55,15 +57,58 @@
         @endif
     </div>
 
-    <section class="mx-5">
+    <section class="mx-5 content">
         @yield('content')
     </section>
 
     <footer>
+        <footer class="footer-custom mt-5">
+
+            <div class="footer-content">
+
+                <!-- logo / nome -->
+                <div class="footer-brand">
+                    <h4>Button Box by Maiorzin</h4>
+                    <p>Dashboard e Button Box para Euro Truck Simulator 2</p>
+                </div>
+
+                <!-- links -->
+                <div class="footer-links">
+                    <h5>Legal</h5>
+                    <ul>
+                        <li><a href="{{ route('privacypolicy') }}">Política de Privacidade</a></li>
+                        <li><a href="{{ route('terms') }}">Termos de Uso</a></li>
+                    </ul>
+                </div>
+
+                <!-- redes sociais -->
+                <div class="footer-social">
+                    <h5>Redes Sociais</h5>
+                    <a class="social-link" href="https://instagram.com/maiorzin" target="_blank">
+                        Instagram
+                    </a>
+                </div>
+
+            </div>
+
+            <div class="footer-bottom">
+                <p>© {{ date('Y') }} Button Box by Maiorzin - Todos os direitos reservados</p>
+            </div>
+
+        </footer>
 
     </footer>
 
-    <div id="custom-alert" class="alert-hidden">
+    <div class="cookie-hidden" id="cookie-consent">
+        <div class="cookie-box">
+            <p>
+                Este site usa cookies para melhorar sua experiência. Ao continuar navegando, você concorda com isso.
+            </p>
+            <button onclick="acceptCookies()">Aceitar</button>
+        </div>
+    </div>
+
+    <div class="alert-hidden" id="custom-alert">
         <div class="alert-box">
             <div class="alert-icon" id="alert-icon"></div>
             <h2 id="alert-title"></h2>
@@ -72,7 +117,9 @@
             <button onclick="closeAlert()">Cancelar</button>
         </div>
     </div>
-    <script src="{{asset('js/alert.js')}}?{{config('app.version')}}"></script>
+    <script src="{{ asset('js/alert.js') }}?{{ config('app.version') }}"></script>
+    <script src="{{ asset('js/cookie.js') }}?{{ config('app.version') }}"></script>
     @yield('javascript')
 </body>
+
 </html>

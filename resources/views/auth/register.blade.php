@@ -34,8 +34,20 @@
             <label for="input-confirm-password">Confirmar Senha</label>
         </div>
 
-        <a href="">Termos de uso</a>
-        <a href="">Política de privacidade</a>
+        <div class="form-check custom-checkbox mt-3">
+            <input 
+                class="form-check-input" 
+                type="checkbox" 
+                id="terms" 
+                name="terms"                 
+            >
+            <label class="form-check-label" for="terms">
+                Eu li e aceito os 
+                <a href="{{ route('terms') }}" target="_blank">Termos de Uso</a> 
+                e a 
+                <a href="{{ route('privacypolicy') }}" target="_blank">Política de Privacidade</a>
+            </label>
+        </div>
         
         <button type="submit" class="btn btn-dark">Cadastrar</button>
 
