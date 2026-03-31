@@ -1,4 +1,28 @@
 @extends('layouts.app')
+@section('title', 'Termos de Uso | Button Box by Maiorzin')
+@section('meta')
+    <meta name="description" content="Leia os Termos de Uso do Button Box by Maiorzin e entenda as regras para utilização da plataforma, publicação de mods e uso do sistema.">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    {{-- Open Graph --}}
+    <meta property="og:title" content="Termos de Uso | Button Box by Maiorzin">
+    <meta property="og:description" content="Confira as regras e condições para uso da plataforma Button Box by Maiorzin e publicação de conteúdos.">
+    <meta property="og:image" content="{{config('app.url') . asset('icon/android-chrome-192x192.png') }}?{{ config('app.app_version') }}">
+    <meta property="og:url" content="{{ url()->current() }}">
+    <meta property="og:type" content="website">
+
+    {{-- Twitter --}}
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Termos de Uso - Button Box">
+    <meta name="twitter:description" content="Saiba as condições e regras para utilizar o Button Box by Maiorzin e publicar mods na plataforma.">
+    <meta name="twitter:image" content="{{config('app.url') . asset('icon/android-chrome-192x192.png') }}?{{ config('app.app_version') }}">
+
+    <link rel="canonical" href="{{ url()->current() }}">
+@endsection
+
 
 @section('content')
     <div class="div-emphasis">

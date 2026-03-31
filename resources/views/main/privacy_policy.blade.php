@@ -1,5 +1,31 @@
 @extends('layouts.app')
 
+@section('title', 'Política de Privacidade | Button Box by Maiorzin')
+@section('meta')
+    <meta name="description" content="Leia a Política de Privacidade do Button Box by Maiorzin e entenda como seus dados são coletados, utilizados e protegidos em nossa plataforma.">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    {{-- Open Graph --}}
+    <meta property="og:title" content="Política de Privacidade | Button Box by Maiorzin">
+    <meta property="og:description" content="Saiba como protegemos seus dados e garantimos sua privacidade ao utilizar o Button Box by Maiorzin.">
+    <meta property="og:image" content="{{config('app.url') . asset('icon/android-chrome-192x192.png') }}?{{ config('app.app_version') }}">
+    <meta property="og:url" content="{{ url()->current() }}">
+    <meta property="og:type" content="website">
+
+    {{-- Twitter --}}
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Política de Privacidade - Button Box">
+    <meta name="twitter:description" content="Entenda como seus dados são coletados e protegidos no Button Box by Maiorzin.">
+    <meta name="twitter:image" content="{{config('app.url') . asset('icon/android-chrome-192x192.png') }}?{{ config('app.app_version') }}">
+
+    <link rel="canonical" href="{{ url()->current() }}">
+
+@endsection
+
+
 @section('content')
     <div class="div-emphasis">
         <h1>Política de Privacidade</h1>
