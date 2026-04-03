@@ -17,7 +17,7 @@
 <h1 onclick="toggleFullScreen()">Painel</h1>
 
 {!! $panel->html !!}
-<script>
+{{-- <script>
 
 const socket = new WebSocket(`ws://${location.host}/ws`);
 
@@ -91,7 +91,7 @@ function toggleFullScreen() {
     }
 }
 
-</script>
+</script> --}}
 
 </body>
 </html>
