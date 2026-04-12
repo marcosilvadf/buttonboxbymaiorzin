@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use App\Models\Panel;
 use App\Models\UserPcHash;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Str;
 
 class ApiPanelController extends Controller
@@ -21,20 +22,60 @@ class ApiPanelController extends Controller
 
         if(!$user)
         {
+            Log::channel('api_recovery_html')->info(
+                'Tentativa sem hash de user',
+                [
+                    'user_hash' => $userHash,
+                    'ip' => request()->ip(),
+                    'user_agent' => request()->userAgent(),
+                    'url' => request()->fullUrl()
+                ]
+            );
             return abort(404);
         }
 
         if(!$confirmHash)
         {
+            Log::channel('api_recovery_html')->info(
+                'Tentativa sem hash de confirmação',
+                [
+                    'user' => $user->id,
+                    'user_name' => $user->name,
+                    'ip' => request()->ip(),
+                    'user_agent' => request()->userAgent(),
+                    'url' => request()->fullUrl()
+                ]
+            );
             return abort(401);
         }
 
         if(!$user->is_pro)
         {
+            Log::channel('api_recovery_html')->info(
+                'Tentativa sem user pro',
+                [
+                    'user' => $user->id,
+                    'user_name' => $user->name,
+                    'ip' => request()->ip(),
+                    'user_agent' => request()->userAgent(),
+                    'url' => request()->fullUrl()
+                ]
+            );
             return abort(401);
         }
 
         if (!Str::isUuid($pchash)) {
+            Log::channel('api_recovery_html')->info(
+                'Tentativa com hash de pc errado',
+                [
+                    'user' => $user->id,
+                    'user_name' => $user->name,
+                    'pchash' => $pchash,
+                    'ip' => request()->ip(),
+                    'user_agent' => request()->userAgent(),
+                    'url' => request()->fullUrl()
+                ]
+            );
             return abort(401);
         }
 
@@ -44,6 +85,19 @@ class ApiPanelController extends Controller
 
         if ($pcHashRecord) {
             if(!$pcHashRecord->user->is_pro) {
+                Log::channel('api_recovery_html')->info(
+                    'Tentativa com nova conta',
+                    [
+                        'user' => $user->id,
+                        'user_name' => $user->name,
+                        'user2' => $pcHashRecord->user->id,
+                        'user_name2' => $pcHashRecord->user->name,
+                        'pchash' => $pchash,
+                        'ip' => request()->ip(),
+                        'user_agent' => request()->userAgent(),
+                        'url' => request()->fullUrl()
+                    ]
+                );
                 return abort(401);
             }
         }

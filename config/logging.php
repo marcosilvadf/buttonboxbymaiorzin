@@ -144,6 +144,12 @@ return [
             'path' => storage_path('logs/mp_notification.log'),
             'level' => 'info',
         ],
+
+        'api_recovery_html' => [
+            'driver' => 'single',
+            'path' => storage_path('logs/api_recovery_html.log'),
+            'level' => 'info',
+        ],
     ],
 
 ];
