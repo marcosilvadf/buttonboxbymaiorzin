@@ -24,7 +24,7 @@ Route::prefix('/mercado-pago')->group(function() {
     Route::post('/', [MercadoPagoController::class, 'webhook'])->name('mercadopagowebhook');
 });
 
-Route::get('/hash-user/{hash}', [ApiPanelController::class, 'returnHtmlHashUser']);
+Route::get('/hash-user/{pchash}/{hash}', [ApiPanelController::class, 'returnHtmlHashUser']);
 
 Route::get('version', function() {
     return response()->json('1.0.0.0', 200);

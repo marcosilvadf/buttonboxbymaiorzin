@@ -4,11 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use App\Models\Panel;
-use Illuminate\Http\Request;
+use App\Models\UserPcHash;
+use Illuminate\Support\Str;
 
 class ApiPanelController extends Controller
 {
-    public function returnHtmlHashUser(string $hash)
+    public function returnHtmlHashUser(string $pchash, string $hash)
     {
         $hash = explode('-', $hash);
 
@@ -32,6 +33,26 @@ class ApiPanelController extends Controller
         {
             return abort(401);
         }
+
+        if (!Str::isUuid($pchash)) {
+            return abort(401);
+        }
+
+        $pcHashRecord = UserPcHash::where('pc_hash', $pchash)
+            ->where('user_id', '!=', $user->id)
+            ->first();
+
+        if ($pcHashRecord) {
+            if(!$pcHashRecord->user->is_pro) {
+                return abort(401);
+            }
+        }
+
+        UserPcHash::updateOrCreate([
+            'user_id' => $user->id
+        ], [
+            'pc_hash' => $pchash
+        ]);
 
         $panel = $user->panel->where('current', true)->first();
 
