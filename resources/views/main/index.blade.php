@@ -10,7 +10,7 @@
 
     <h2>O que é o Button Box?</h2>
 
-    <p>O Button Box é um app para Android que transforma seu celular em um painel interativo para simuladores como ETS2.</p>
+    <p>O Button Box é um app para Android que transforma seu celular em um painel interativo para ETS2.</p>
 
     <div class="profile">
         <h2>Por que usar?</h2>
@@ -33,7 +33,7 @@
 
     <div>
         <h3 class="my-text-emphasis mt-2">PRO</h3>
-        <p>Mais recursos, personalização por apenas <span class="my-text-emphasis">R$ 5,99</span></p>
+        <p>Mais recursos, personalização por apenas <span class="my-text-emphasis">R$ 5,99</span>, 7 dias <span class="my-text-emphasis">grátis</span> para teste e instalar, <span class="my-text-emphasis">não é necessário cartão</span></p>
         <a href="{{ route('version.pro') }}">Ver versão PRO</a>
     </div>
 @endsection
