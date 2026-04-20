@@ -76,6 +76,14 @@
 
     <h2 class="my-text-emphasis mt-5">Como usar?</h2>
 
+    <p class="my-text-emphasis">
+        Assista ao tutorial em vídeo
+    </p>
+
+    <div class="video-container">
+        <iframe src="https://www.youtube.com/embed/RIQ2RXaF6Cc?si=wG_NI4SR8impLB_K" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </div>
+
     <p>Para usar é muito simples, basta fazer o <a href="{{ asset('program/ButtonBoxWebMaiorzin.zip') }}" class="my-text-emphasis">Download clicando aqui</a> do programa no pc, extrai-lo e seguir os passos abaixo:</p>
     
     <p class="my-text-emphasis">Lembre-se de nos campos não colocar espaços antes, nem depois</p>
