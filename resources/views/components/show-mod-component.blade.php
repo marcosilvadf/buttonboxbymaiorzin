@@ -12,14 +12,15 @@
     <span class="h1 text-uppercase">{{ $mod->title }}</span>
     <span class="h4">{{ $mod->category->name }}</span>
     <span class="w-100">{{ $mod->game->name }} - versão: {{ $mod->gameVersion->version }}</span>
+    <span class="w-100">Postado por: <span class="fw-bold">{{ $mod->user->name }}</span></span>
     <span>{{ $mod->description }}</span>
-    <div class="rating w-100 d-flex justify-content-end" data-id="{{ $mod->id }}" data-rating="{{ $mod->average_rating }}">
+    {{-- <div class="rating w-100 d-flex justify-content-end" data-id="{{ $mod->id }}" data-rating="{{ $mod->average_rating }}">
         <i class="fa fa-star star" data-value="1"></i>
         <i class="fa fa-star star" data-value="2"></i>
         <i class="fa fa-star star" data-value="3"></i>
         <i class="fa fa-star star" data-value="4"></i>
         <i class="fa fa-star star" data-value="5"></i>
-    </div>
+    </div> --}}
     <span class="w-100">Versão do mod: {{ $mod->version }}</span>
     @foreach ($mod->links as $link)
         <a class="btn btn-dark m-2" href="{{ $link->link }}" target="_blank">{{ $link->description }}</a>
