@@ -31,7 +31,7 @@ class ApiPanelController extends Controller
                     'url' => request()->fullUrl()
                 ]
             );
-            return abort(404);
+            return view('panel.not_found');
         }
 
         if(!$confirmHash)
@@ -46,7 +46,7 @@ class ApiPanelController extends Controller
                     'url' => request()->fullUrl()
                 ]
             );
-            return abort(401);
+            return view('panel.not_found');
         }
 
         if(!$user->is_pro)
@@ -61,7 +61,7 @@ class ApiPanelController extends Controller
                     'url' => request()->fullUrl()
                 ]
             );
-            return abort(401);
+            return view('panel.expired');
         }
 
         if (!Str::isUuid($pchash)) {
@@ -76,7 +76,7 @@ class ApiPanelController extends Controller
                     'url' => request()->fullUrl()
                 ]
             );
-            return abort(401);
+            return view('panel.expired');
         }
 
         $pcHashRecord = UserPcHash::where('pc_hash', $pchash)
@@ -98,7 +98,7 @@ class ApiPanelController extends Controller
                         'url' => request()->fullUrl()
                     ]
                 );
-                return abort(401);
+                return view('panel.expired');
             }
         }
 
