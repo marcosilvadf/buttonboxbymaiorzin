@@ -36,7 +36,7 @@
                     </li>
 
                     <!-- Dropdown -->
-                    <li class="nav-item dropdown">
+                    {{-- <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle {{active(['login', 'register', 'password.*', 'dashboard', 'profile', 'profile.*', 'payment'])}}" data-bs-toggle="dropdown" href="#">
                             <i class="fa fa-user me-1"></i> Conta
                         </a>
@@ -81,13 +81,13 @@
                                 </li>
                             @endguest
                         </ul>
-                    </li>
+                    </li> --}}
 
-                    <li class="nav-item">
+                    {{-- <li class="nav-item">
                         <a class="btn nav-link active rounded-pill px-3 ms-lg-2" href="{{ route('plan') }}">
                             <i class="fa-solid fa-file-invoice-dollar"></i> Plano PRO R$ 5,99
                         </a>
-                    </li>
+                    </li> --}}
 
                 </ul>
 
