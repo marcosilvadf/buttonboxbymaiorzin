@@ -13,6 +13,8 @@ class PlanController extends Controller
 
     public function payment()
     {
+        return abort(404);
+        
         $preferenceId = null;
 
         $mercadoPagoService = new MercadoPagoService;
