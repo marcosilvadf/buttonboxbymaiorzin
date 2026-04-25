@@ -13,9 +13,6 @@
 </head>
 
 <body>
-
-<h1 onclick="toggleFullScreen()">Painel</h1>
-
 {!! $panel->html !!}
 {{-- <script>
 
