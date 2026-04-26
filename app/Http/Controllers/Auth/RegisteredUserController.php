@@ -42,7 +42,6 @@ class RegisteredUserController extends Controller
         ]);
 
         $expirationDate = Carbon::now()
-        ->addDays(7)
         ->setTime(23, 59, 59);
 
         $expirationUser = new ExpirationUserPlan;
