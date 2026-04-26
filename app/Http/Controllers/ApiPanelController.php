@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use App\Models\Panel;
+use App\Models\PcHashTrial;
 use App\Models\UserPcHash;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Str;
 
@@ -113,6 +115,68 @@ class ApiPanelController extends Controller
         if(!$panel) {
             $panel = Panel::latest('id')->first();
         }
+
+        return view('panel.panel', [
+            'panel' => $panel
+        ]);
+    }
+
+    public function returnHtmlTrial(string $pchash)
+    {
+        if (!Str::isUuid($pchash)) {
+            Log::channel('api_recovery_html')->info(
+                'Tentativa com hash de pc errado',
+                [
+                    'pchash' => $pchash,
+                    'ip' => request()->ip(),
+                    'user_agent' => request()->userAgent(),
+                    'url' => request()->fullUrl()
+                ]
+            );
+            return view('panel.message', [
+                'title' => 'Erro ao validar dispositivo',
+                'paragraph' => 'Não foi possível validar este dispositivo. Tente abrir novamente pelo aplicativo ou reinicie o programa.',
+                'route' => route('index'),
+                'titleRouth' => 'Voltar'
+            ]);
+        }
+
+        $pcHashRecord = UserPcHash::where('pc_hash', $pchash)
+            ->first();
+
+        if($pcHashRecord) {
+            return view('panel.message', [
+                'title' => 'Atenção',
+                'paragraph' => 'Foi identificado que você pode ter um perfil já cadastrado!',
+                'route' => route('login'),
+                'titleRouth' => 'Acessar Perfil'
+            ]);
+        }
+
+        $pcHashTrial = PcHashTrial::firstOrCreate(
+            ['pc_hash' => $pchash],
+            ['first_ip' => request()->ip(), 'updated_ip' => request()->ip()]
+        );
+
+        $pcHashTrial->update([
+            'updated_ip' => request()->ip()
+        ]);
+
+        $limitDate = Carbon::parse($pcHashTrial->created_at)
+            ->endOfDay()
+            ->addDays(7)
+            ->endOfDay();
+
+        if (now()->greaterThan($limitDate)) {
+            return view('panel.message', [
+                'title' => 'Seu teste terminou',
+                'paragraph' => 'Você já viu como o Button Box pode facilitar seu setup. Desbloqueie todas as funções agora e continue usando sem limites por apenas R$ 5,99 mensal pré-pago.',
+                'route' => route('index'),
+                'titleRouth' => 'Conhecer plano'
+            ]);
+        }
+
+        $panel = Panel::latest('id')->first();    
 
         return view('panel.panel', [
             'panel' => $panel

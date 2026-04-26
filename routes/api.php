@@ -25,6 +25,7 @@ Route::prefix('/mercado-pago')->group(function() {
 });
 
 Route::get('/hash-user/{pchash}/{hash}', [ApiPanelController::class, 'returnHtmlHashUser']);
+Route::get('/hash-user/{pchash}', [ApiPanelController::class, 'returnHtmlTrial']);
 
 Route::get('version', function() {
     return response()->json('1.0.0.0', 200);
