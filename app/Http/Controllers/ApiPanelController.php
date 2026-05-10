@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Ad;
 use App\Models\User;
 use App\Models\Panel;
 use App\Models\PcHashTrial;
@@ -63,7 +64,14 @@ class ApiPanelController extends Controller
                     'url' => request()->fullUrl()
                 ]
             );
-            return view('panel.expired');
+
+            $panel = Panel::find(3);
+            $ads = Ad::all();
+
+            return view('panel.freepanel', [
+                'panel' => $panel,
+                'ads' => $ads
+            ]);
         }
 
         if (!Str::isUuid($pchash)) {
@@ -161,25 +169,13 @@ class ApiPanelController extends Controller
         $pcHashTrial->update([
             'updated_ip' => request()->ip()
         ]);
+                
+        $panel = Panel::find(3);
+        $ads = Ad::all();
 
-        $limitDate = Carbon::parse($pcHashTrial->created_at)
-            ->endOfDay()
-            ->addDays(7)
-            ->endOfDay();
-
-        if (now()->greaterThan($limitDate)) {
-            return view('panel.message', [
-                'title' => 'Seu teste terminou',
-                'paragraph' => 'Você já viu como o Button Box pode facilitar seu setup. Desbloqueie todas as funções agora e continue usando sem limites por apenas R$ 5,99 mensal pré-pago.',
-                'route' => route('index'),
-                'titleRouth' => 'Conhecer plano'
-            ]);
-        }
-
-        $panel = Panel::latest('id')->first();    
-
-        return view('panel.panel', [
-            'panel' => $panel
+        return view('panel.freepanel', [
+            'panel' => $panel,
+            'ads' => $ads
         ]);
     }
 }

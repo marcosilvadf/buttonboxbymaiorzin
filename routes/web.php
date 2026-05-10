@@ -82,13 +82,13 @@ Route::prefix('reportar-mods')->group(function() {
 });
 
 Route::prefix('posts')->group(function() {
-    Route::get('/button-box-ets2-gratis-app-dashboard', function() {
+    /* Route::get('/button-box-ets2-gratis-app-dashboard', function() {
         return view('posts.free_version');
     })->name('version.free');
 
     Route::get('/button-box-ets2-pro', function() {
         return view('posts.pro_version');
-    })->name('version.pro');
+    })->name('version.pro'); */
 });
 
 Route::prefix('rating')->group(function() {

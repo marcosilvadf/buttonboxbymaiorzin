@@ -17,7 +17,7 @@ Com o nosso <strong>Button Box</strong>, cada viagem se transforma em uma experi
 </div>
 
 <p>
-    Desbloqueie por apenas R$5,99 por mês, plano pré-pago, se não quiser continuar é só não pagar. <a href="{{route('payment')}}" class="btn btn-emphasis">Clicando aqui</a>
+    Ajude o projeto e remova os anúncios por apenas R$5,99 por mês, plano pré-pago, se não quiser continuar é só não pagar. <a href="{{route('payment')}}" class="btn btn-emphasis">Clicando aqui</a>
 </p>
 
 <p>
@@ -26,7 +26,7 @@ Seja para gameplay casual ou para quem leva simulação a sério, o button box e
 </p>
 
 <p>
-Simples de usar, compatível com PC e totalmente configurável para o seu estilo de jogo.
+Simples de usar, compatível com PC e um visual amigável para o seu estilo de jogo.
 </p>
 
 @endsection
