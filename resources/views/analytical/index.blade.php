@@ -19,8 +19,8 @@
         <div class="col-md-4 mb-2">
             <div class="card">
                 <div class="card-body">
-                    <h5>Cadastrados</h5>
-                    <h2>{{ $data['userPcHashes'] }}</h2>
+                    <h5>Trial</h5>
+                    <h2>{{ $data['pcHashTrials'] }}</h2>
                 </div>
             </div>
         </div>
@@ -28,8 +28,8 @@
         <div class="col-md-4 mb-2">
             <div class="card">
                 <div class="card-body">
-                    <h5>Trial</h5>
-                    <h2>{{ $data['pcHashTrials'] }}</h2>
+                    <h5>Cadastrados</h5>
+                    <h2>{{ $data['userPcHashes'] }}</h2>
                 </div>
             </div>
         </div>
