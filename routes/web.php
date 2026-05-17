@@ -6,6 +6,7 @@ use App\Http\Controllers\MercadoPagoController;
 use App\Http\Controllers\ModsController;
 use App\Http\Controllers\RatingController;
 use App\Http\Controllers\RepportModController;
+use App\Http\Controllers\AnalyticalController;
 use Illuminate\Support\Facades\Route;
 use App\Models\Mod;
 
@@ -95,6 +96,12 @@ Route::prefix('rating')->group(function() {
     Route::middleware('auth')->group(function () {
         Route::post('/', [RatingController::class, 'rating']);
     }); 
+});
+
+Route::prefix('analises')->group(function() {
+    Route::middleware('auth')->group(function () {
+        Route::get('/', [AnalyticalController::class, 'index'])->name('analytical.index');
+    });
 });
 
 Route::get('/sitemap.xml', function () {

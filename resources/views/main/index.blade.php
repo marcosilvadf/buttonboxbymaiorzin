@@ -26,6 +26,7 @@
     <div>
         <h3 class="my-text-emphasis">Download</h3>
         <a href="{{ asset('program/ButtonBoxWebMaiorzin.zip') }}">Clique aqui pra baixar e usar</a>
+        <p>*Não é necessário criar uma conta caso você não queira ser pro</p>
     </div>  
 
     <div class="profile">
