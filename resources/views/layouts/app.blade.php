@@ -87,6 +87,9 @@
                     <a class="social-link" href="https://instagram.com/maiorzin" target="_blank">
                         Instagram
                     </a>
+                    <a class="social-link" href="https://discord.gg/4Tm2QKFqP9" target="_blank">
+                        Discord
+                    </a>
                 </div>
 
             </div>

@@ -121,9 +121,11 @@ class ApiPanelController extends Controller
         $panel = $user->panel->where('current', true)->first();
 
         if(!$panel) {
-            $panel = Panel::latest('id')->first();
+            $panel = Panel::find(3);
+        } else {
+            $panel = $user->panel->panel;
         }
-
+        
         return view('panel.panel', [
             'panel' => $panel
         ]);
@@ -172,7 +174,7 @@ class ApiPanelController extends Controller
                 
         $panel = Panel::find(3);
         $ads = Ad::all();
-
+        
         return view('panel.freepanel', [
             'panel' => $panel,
             'ads' => $ads

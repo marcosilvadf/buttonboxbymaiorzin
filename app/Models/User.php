@@ -88,7 +88,7 @@ class User extends Authenticatable
 
     public function panel()
     {
-        return $this->hasMany(UserPanel::class);
+        return $this->hasOne(UserPanel::class);
     }
 
     public function getExpiringSoonAttribute()

@@ -24,7 +24,7 @@
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="#">
+                        <a class="nav-link {{active(['panel', 'panel.*'])}}" href="{{ route('panel.index') }}">
                             <i class="fa-solid fa-layer-group"></i></i> Painéis
                         </a>
                     </li>

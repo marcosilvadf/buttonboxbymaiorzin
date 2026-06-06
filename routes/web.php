@@ -7,6 +7,7 @@ use App\Http\Controllers\ModsController;
 use App\Http\Controllers\RatingController;
 use App\Http\Controllers\RepportModController;
 use App\Http\Controllers\AnalyticalController;
+use App\Http\Controllers\PanelController;
 use Illuminate\Support\Facades\Route;
 use App\Models\Mod;
 
@@ -51,6 +52,12 @@ Route::prefix('/mercado-pago')->group(function() {
     Route::get('sucesso', [MercadoPagoController::class, 'success'])->name('mpsuccess');
     Route::get('falha', [MercadoPagoController::class, 'failure'])->name('mpfailed');
     Route::get('pendente', [MercadoPagoController::class, 'pending'])->name('mppending');
+});
+
+Route::prefix('paineis')->group(function() {
+    Route::get('/', [PanelController::class, 'index'])->name('panel.index');
+    Route::get('/preview/{panel}/{name}', [PanelController::class, 'preview'])->name('panel.preview');
+    Route::get('/selecionar/{panel}', [PanelController::class, 'select'])->name('panel.select');
 });
 
 Route::prefix('mods')->group(function() {

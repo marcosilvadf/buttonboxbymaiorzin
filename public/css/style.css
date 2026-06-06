@@ -900,6 +900,17 @@ form {
 
 /* end youtube player */
 
+/* add card style */
+.card {
+    transition: transform .2s ease, box-shadow .2s ease;
+}
+
+a:hover .card {
+    transform: translateY(-3px);
+}
+
+/* end add card style */
+
 @media (max-width: 900px) {
     form,
     .profile,
