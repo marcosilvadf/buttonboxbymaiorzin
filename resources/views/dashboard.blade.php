@@ -5,7 +5,7 @@
         <h2>Perfil</h2>
         <span class="h3">{{auth()->user()->name}}</span>
         <span class="h4">{{auth()->user()->first_name}} {{auth()->user()->last_name}}</span>
-        <a href="{{ route('mods.manager') }}" class="btn btn-dark my-2">Gerenciar mods</a>
+        {{-- <a href="{{ route('mods.manager') }}" class="btn btn-dark my-2">Gerenciar mods</a> --}}
         <a href="{{ route('repport.index') }}" class="btn btn-dark my-2">Reportes</a>
         <div class="mt-2">
             @if ($plan && $plan->user_type_id == 2)
