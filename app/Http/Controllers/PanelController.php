@@ -11,7 +11,8 @@ class PanelController extends Controller
 {
     public function index()
     {
-        $panels = Panel::select(['id', 'name', 'image'])
+        $panels = Panel::whereNotNull('name')
+        ->select(['id', 'name', 'image'])
         ->orderBy('id', 'DESC')
         ->paginate(15);
 

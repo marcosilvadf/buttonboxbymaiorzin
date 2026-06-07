@@ -2,14 +2,14 @@
 
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
-    {{-- Página inicial --}}
+    {{-- Home page --}}
     <url>
         <loc>{{ url('/') }}</loc>
         <changefreq>daily</changefreq>
         <priority>1.0</priority>
     </url>
 
-    {{-- Página de planos --}}
+    {{-- Plan page --}}
     <url>
         <loc>{{ route('plan') }}</loc>
         <changefreq>weekly</changefreq>
@@ -25,13 +25,26 @@
         </url>
     @endforeach
 
-    {{-- Posts fixos --}}
+    {{-- Panels --}}
+    <url>
+        <loc>{{ route('panel.index') }}</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    @foreach ($panels as $panel)
+        <url>
+            <loc>{{ route('panel.preview', ['panel' => $panel->id, 'name' => Str::slug($panel->name)]) }}</loc>
+            <changefreq>weekly</changefreq>
+            <priority>0.9</priority>
+        </url>
+    @endforeach
+
+    {{-- Fixed posts --}}
     <url>
         <loc>{{ url('/posts/button-box-ets2-gratis-app-dashboard') }}</loc>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
-
-    {{-- Adicione mais posts manualmente aqui --}}
     
 </urlset>

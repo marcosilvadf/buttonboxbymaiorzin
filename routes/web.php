@@ -10,6 +10,7 @@ use App\Http\Controllers\AnalyticalController;
 use App\Http\Controllers\PanelController;
 use Illuminate\Support\Facades\Route;
 use App\Models\Mod;
+use App\Models\Panel;
 
 /*
 |--------------------------------------------------------------------------
@@ -114,8 +115,9 @@ Route::prefix('analises')->group(function() {
 Route::get('/sitemap.xml', function () {
 
     $mods = Mod::all();
+    $panels = Panel::whereNotNull('name')->get();
 
-    return response()->view('sitemap', compact('mods'))
+    return response()->view('sitemap', compact('mods', 'panels'))
         ->header('Content-Type', 'text/xml');
 
 });

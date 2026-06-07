@@ -41,7 +41,7 @@
     <div class="row">
         @forelse($panels as $panel)
             <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
-                <a href="{{ route('panel.preview', ['panel' => $panel->id, 'name' => $panel->name]) }}"
+                <a href="{{ route('panel.preview', ['panel' => $panel->id, 'name' => Str::slug($panel->name)]) }}"
                 class="text-decoration-none text-reset">
                     <div class="card h-100 shadow-sm">
                         <img
