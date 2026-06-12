@@ -40,11 +40,6 @@
         </url>
     @endforeach
 
-    {{-- Fixed posts --}}
-    <url>
-        <loc>{{ url('/posts/button-box-ets2-gratis-app-dashboard') }}</loc>
-        <changefreq>monthly</changefreq>
-        <priority>0.7</priority>
-    </url>
+    {{-- Fixed posts --}}    
     
 </urlset>
