@@ -28,5 +28,5 @@ Route::get('/hash-user/{pchash}/{hash}', [ApiPanelController::class, 'returnHtml
 Route::get('/hash-user/{pchash}', [ApiPanelController::class, 'returnHtmlTrial']);
 
 Route::get('version', function() {
-    return response()->json('1.0.0.0', 200);
+    return response()->json('1.0.0.1', 200);
 });
