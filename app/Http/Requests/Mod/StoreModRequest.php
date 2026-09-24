@@ -23,6 +23,7 @@ class StoreModRequest extends FormRequest
     {
         return [
             'image' => 'required|image|mimes:jpg,jpeg,png,webp|max:2048',
+            'mod_file' => 'required',
             'title' => ['required', 'string', 'max:255'],
             'description' => ['nullable', 'string', 'max:2000'],
             'mod_version' => ['required', 'string', 'max:15'],
@@ -32,7 +33,7 @@ class StoreModRequest extends FormRequest
             'game_version' => ['required', 'string', 'exists:game_version_mods,id', 'max:50'],
 
             // LINKS
-            'txt_link' => ['required', 'array', 'max:3'],
+            /* 'txt_link' => ['required', 'array', 'max:3'],
             'txt_link.0' => ['required', 'string', 'max:255'],
             'txt_link.1' => ['nullable', 'string', 'max:255'],
             'txt_link.2' => ['nullable', 'string', 'max:255'],
@@ -40,7 +41,7 @@ class StoreModRequest extends FormRequest
             'link' => ['required', 'array', 'max:3'],
             'link.0' => ['required', 'url', 'max:255'],
             'link.1' => ['nullable', 'url', 'max:255'],
-            'link.2' => ['nullable', 'url', 'max:255'],
+            'link.2' => ['nullable', 'url', 'max:255'], */
         ];
     }
 
@@ -51,6 +52,7 @@ class StoreModRequest extends FormRequest
             'image.image' => 'O arquivo deve ser uma imagem válida.',
             'image.mimes' => 'A imagem deve estar nos formatos: jpg, jpeg, png ou webp.',
             'image.max' => 'A imagem deve ter no máximo 2MB.',
+            'mod_file.required' => 'O arquivo do Mod é obrigatório',
             'title.required' => 'O título é obrigatório.',
             'title.max' => 'O título deve ter no máximo 255 caracteres.',
 
@@ -76,7 +78,7 @@ class StoreModRequest extends FormRequest
         ];
     }
     
-    public function withValidator($validator)
+    /* public function withValidator($validator)
     {
         $validator->after(function ($validator) {
             $links = $this->link;
@@ -92,5 +94,5 @@ class StoreModRequest extends FormRequest
                 }
             }
         });
-    }
+    } */
 }

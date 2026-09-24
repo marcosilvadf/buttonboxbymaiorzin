@@ -5,8 +5,10 @@
         <h2>Perfil</h2>
         <span class="h3">{{auth()->user()->name}}</span>
         <span class="h4">{{auth()->user()->first_name}} {{auth()->user()->last_name}}</span>
-        {{-- <a href="{{ route('mods.manager') }}" class="btn btn-dark my-2">Gerenciar mods</a> --}}
+        @if (auth()->user()->id == 1)
+            <a href="{{ route('mods.manager') }}" class="btn btn-dark my-2">Gerenciar mods</a>
         <a href="{{ route('repport.index') }}" class="btn btn-dark my-2">Reportes</a>
+        @endif
         <div class="mt-2">
             @if ($plan && $plan->user_type_id == 2)
                 <span class="fw-bold my-text-secondary">Plano: {{$plan->plan->name}} - Vencimento: {{\Carbon\Carbon::parse($plan->expiration)->format('d/m/Y')}}</span> <br>

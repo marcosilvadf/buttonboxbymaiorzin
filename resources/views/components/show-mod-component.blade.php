@@ -1,4 +1,12 @@
-<div class="profile" @if (isset($owner) && $owner) @else onclick="location.href = '{{ route('mods.show', $mod->slug) }}'" @endif>
+<div class="profile"
+    @if (
+        (isset($owner) && $owner) ||
+        request()->path() === 'mods/m/' . $mod->slug
+    )
+    @else
+        onclick="location.href = '{{ route('mods.show', $mod->slug) }}'"
+    @endif
+>
     <div class="w-100 mb-3 text-center">
         @if ($mod->images->first())
             <img alt="{{ $mod->images->first()->alt }}" src="{{ $mod->images->first()->url }}" style="max-width: 100%; height: auto; border-radius: 10px;">
@@ -52,6 +60,9 @@
             <div class="w-100 d-flex my-2">
                 <a class="" href="{{ route('repport.create', $mod->id) }}">Denunciar</a>
             </div>
+            <a href="{{ route('mods.download', $mod) }}" class="btn btn-dark">
+                Download
+            </a>
         @else
             <div class="w-100 d-flex justify-content-end my-2">
                 <a class="btn btn-dark" id="btn-see-mod-{{$mod->id}}" href="{{ route('mods.show', $mod->slug) }}">Ver mod</a>

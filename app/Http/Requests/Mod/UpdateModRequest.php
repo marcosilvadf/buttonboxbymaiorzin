@@ -28,7 +28,7 @@ class UpdateModRequest extends FormRequest
             'game_version' => ['required', 'exists:game_version_mods,id'],
 
             // LINKS
-            'txt_link' => ['required', 'array', 'max:3'],
+            /* 'txt_link' => ['required', 'array', 'max:3'],
             'txt_link.0' => ['required', 'string', 'max:255'],
             'txt_link.1' => ['nullable', 'string', 'max:255'],
             'txt_link.2' => ['nullable', 'string', 'max:255'],
@@ -36,7 +36,7 @@ class UpdateModRequest extends FormRequest
             'link' => ['required', 'array', 'max:3'],
             'link.0' => ['required', 'url', 'max:255'],
             'link.1' => ['nullable', 'url', 'max:255'],
-            'link.2' => ['nullable', 'url', 'max:255'],
+            'link.2' => ['nullable', 'url', 'max:255'], */
         ];
     }
 
@@ -45,8 +45,8 @@ class UpdateModRequest extends FormRequest
         return (new StoreModRequest)->messages();
     }
 
-    public function withValidator($validator)
+    /* public function withValidator($validator)
     {
         (new StoreModRequest)->withValidator($validator);
-    }
+    } */
 }

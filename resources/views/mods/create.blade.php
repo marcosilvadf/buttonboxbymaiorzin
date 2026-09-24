@@ -53,7 +53,7 @@
             </select>
         </div>
         
-        @for ($i = 0; $i < 3; $i++)
+        {{-- @for ($i = 0; $i < 3; $i++)
             <div class="form-group div-input">
                 <input type="text" name="txt_link[]" class="form-control" id="input-txt-link-{{$i}}" value="{{ old('txt_link.'.$i) }}" maxlength="255" @if ($i == 0) required placeholder=" " @else placeholder=" " @endif>
                 <label for="input-txt-link-{{$i}}">Texto do Link {{ $i + 1 }} Exemplo: {{$textHelpInputLinks[$i]}}</label>
@@ -63,7 +63,12 @@
                 <input type="url" name="link[]" class="form-control" id="input-link-{{$i}}" value="{{ old('link.'.$i) }}" maxlength="255" @if ($i == 0) required placeholder=" " @else placeholder=" " @endif>
                 <label for="input-link-{{$i}}">URL do Link {{ $i + 1 }}</label>
             </div>   
-        @endfor
+        @endfor --}}
+
+        <div class="form-group div-input">
+            <input type="file" name="mod_file" class="form-control" id="input-file-mod" accept=".scs, .zip" required>
+            <label for="input-file-mod">Arquivo do Mod</label>
+        </div>
 
         <button type="submit" class="btn btn-dark">Cadastrar</button>
     </x-form-component>

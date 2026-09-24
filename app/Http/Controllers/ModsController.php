@@ -70,6 +70,20 @@ class ModsController extends Controller
         $mod->slug = Str::slug($request->title) . '-' . uniqid();
         $mod->description = $request->description;
         $mod->version = $request->mod_version;
+        $modPath = $request->file('mod_file');
+
+        $filename = Str::slug(
+            pathinfo($modPath->getClientOriginalName(), PATHINFO_FILENAME),
+            '_'
+        ) . '.' . $modPath->getClientOriginalExtension();
+
+        $modPath = $modPath->storeAs(
+            'mods/' . auth()->id(),
+            $filename,
+            'public'
+        );
+
+        $mod->mod_path = $modPath;
 
         $mod->save();
 
@@ -84,14 +98,14 @@ class ModsController extends Controller
             ]);
         }
 
-        foreach ($request->link as $key => $url) {            
+        /* foreach ($request->link as $key => $url) {            
             if ($url) {
                 $mod->links()->create([
                     'link' => $url,
                     'description' => $request->txt_link[$key]
                 ]);
             }
-        }
+        } */
 
         return redirect()->route('mods.manager')->with('status', 'Mod cadastrado com sucesso.');
     }
@@ -176,7 +190,7 @@ class ModsController extends Controller
                 ]);
             }
 
-            $mod->links()->delete();
+            /* $mod->links()->delete();
 
             foreach ($request->link as $key => $url) {
                 if ($url) {
@@ -185,7 +199,7 @@ class ModsController extends Controller
                         'description' => $request->txt_link[$key]
                     ]);
                 }
-            }
+            } */
         });
 
         return redirect()
@@ -199,6 +213,8 @@ class ModsController extends Controller
     public function destroy(Mod $mod)
     {
         $this->authorize('delete', $mod);
+
+        Storage::disk('public')->delete($mod->mod_path);
 
         $mod->load('images');
         $mod->delete();
@@ -257,5 +273,14 @@ class ModsController extends Controller
             'gameVersionSelected' => $request->version ?? null,
             'search' => $request->search ?? null,
         ]);
+    }
+
+    public function download(Mod $mod)
+    {
+        if (!$mod->mod_path || !Storage::disk('public')->exists($mod->mod_path)) {
+            abort(404);
+        }
+
+        return Storage::disk('public')->download($mod->mod_path);
     }
 }

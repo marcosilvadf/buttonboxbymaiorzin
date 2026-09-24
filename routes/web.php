@@ -65,8 +65,9 @@ Route::prefix('mods')->group(function() {
     Route::get('/', [ModsController::class, 'index'])->name('mods.index');
     Route::get('/m/{slug}', [ModsController::class, 'show'])->name('mods.show');
     Route::get('/filtro', [ModsController::class, 'filter'])->name('mods.filter');
+    Route::get('download/{mod}', [ModsController::class, 'download'])->name('mods.download');
 
-    Route::middleware('auth')->group(function () {
+    Route::middleware(['auth','admin'])->group(function () {
         Route::get('cadastrar', [ModsController::class, 'create'])->name('mods.create');
         Route::post('cadastrar', [ModsController::class, 'store'])->name('mods.store');
         
