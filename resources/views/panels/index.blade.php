@@ -43,7 +43,18 @@
             <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
                 <a href="{{ route('panel.preview', ['panel' => $panel->id, 'name' => Str::slug($panel->name)]) }}"
                 class="text-decoration-none text-reset">
-                    <div class="card h-100 shadow-sm">
+
+                    <div class="card h-100 shadow-sm position-relative">
+                        @if($panel->free)
+                            <span class="position-absolute top-0 end-0 m-2 badge bg-success fs-6">
+                                Grátis
+                            </span>
+                        @else                        
+                            <span class="position-absolute top-0 end-0 m-2 badge bg-danger fs-6">
+                                Pro
+                            </span>
+                        @endif
+
                         <img
                             src="{{ asset($panel->image) }}"
                             class="card-img-top"

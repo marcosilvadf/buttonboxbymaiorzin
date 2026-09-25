@@ -10,6 +10,10 @@ class Panel extends Model
     use HasFactory;
     
     protected $fillable = [
-        'css', 'html'
+        'css', 'html', 'free'
+    ];
+
+    protected $casts = [
+        'free' => 'boolean'
     ];
 }

@@ -17,11 +17,14 @@
         @endif
     </div>
 
-    <span class="h1 text-uppercase">{{ $mod->title }}</span>
-    <span class="h4">{{ $mod->category->name }}</span>
-    <span class="w-100">{{ $mod->game->name }} - versão: {{ $mod->gameVersion->version }}</span>
-    <span class="w-100">Postado por: <span class="fw-bold">{{ $mod->user->name }}</span></span>
-    <span>{{ $mod->description }}</span>
+    <div class="row bg-dark text-white py-3 rounded">
+        <span class="h1 text-uppercase text-center">{{ $mod->title }}</span>
+        <span class="h4 text-center">{{ $mod->category->name }}</span>
+        <span class="w-100">{{ $mod->game->name }} - versão: {{ $mod->gameVersion->version }}</span>
+        <span class="w-100">Postado por: <span class="fw-bold">{{ $mod->user->name }}</span></span>
+        <span class="text-center">{{ $mod->description }}</span>
+        <span class="w-100">Versão do mod: {{ $mod->version }}</span>
+    </div>
     {{-- <div class="rating w-100 d-flex justify-content-end" data-id="{{ $mod->id }}" data-rating="{{ $mod->average_rating }}">
         <i class="fa fa-star star" data-value="1"></i>
         <i class="fa fa-star star" data-value="2"></i>
@@ -29,7 +32,6 @@
         <i class="fa fa-star star" data-value="4"></i>
         <i class="fa fa-star star" data-value="5"></i>
     </div> --}}
-    <span class="w-100">Versão do mod: {{ $mod->version }}</span>
     @foreach ($mod->links as $link)
         <a class="btn btn-dark m-2" href="{{ $link->link }}" target="_blank">{{ $link->description }}</a>
     @endforeach

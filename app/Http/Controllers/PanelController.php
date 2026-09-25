@@ -12,7 +12,7 @@ class PanelController extends Controller
     public function index()
     {
         $panels = Panel::whereNotNull('name')
-        ->select(['id', 'name', 'image'])
+        ->select(['id', 'name', 'image', 'free'])
         ->orderBy('id', 'DESC')
         ->paginate(15);
 
@@ -37,7 +37,7 @@ class PanelController extends Controller
             return redirect()->back()->withErrors('Faça o login para continuar');
         }
 
-        if(!auth()->user()->is_pro) {
+        if(!auth()->user()->is_pro && !$panel->free) {
             return redirect()->back()->withErrors('Recurso liberado apenas para usuários pro');
         }
 

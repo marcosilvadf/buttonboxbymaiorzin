@@ -65,12 +65,16 @@ class ApiPanelController extends Controller
                 ]
             );
 
-            $panel = Panel::find(3);
-            $ads = Ad::all();
+            $panel = $user->panel->where('current', true)->first();
 
-            return view('panel.freepanel', [
-                'panel' => $panel,
-                'ads' => $ads
+            if(!$panel || !$panel->free) {
+                $panel = Panel::find(3);
+            } else {
+                $panel = $user->panel->panel;
+            }
+
+            return view('panel.panel', [
+                'panel' => $panel
             ]);
         }
 
@@ -173,11 +177,9 @@ class ApiPanelController extends Controller
         ]);
                 
         $panel = Panel::find(3);
-        $ads = Ad::all();
         
-        return view('panel.freepanel', [
-            'panel' => $panel,
-            'ads' => $ads
+        return view('panel.panel', [
+            'panel' => $panel
         ]);
     }
 }

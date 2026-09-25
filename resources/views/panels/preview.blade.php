@@ -42,13 +42,13 @@
             {{ $panel->description }}
         </p>
 
-        @if ($panel->id != 3)
+        @if ($panel->id != 3 && !$panel->free)
             <div class="alert alert-warning">
                 Exclusivo para assinantes Pro.
             </div>
         @endif
 
-        @if(auth()->check() && auth()->user()->is_pro)
+        @if(auth()->check() && (auth()->user()->is_pro || $panel->free))
             @if ($current)
                 <a
                 class="btn btn-emphasis btn-lg">
