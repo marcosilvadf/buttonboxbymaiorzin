@@ -2,12 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Ad;
 use App\Models\User;
 use App\Models\Panel;
 use App\Models\PcHashTrial;
 use App\Models\UserPcHash;
-use Carbon\Carbon;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Str;
 
@@ -67,7 +65,7 @@ class ApiPanelController extends Controller
 
             $panel = $user->panel->where('current', true)->first();
 
-            if(!$panel || !$panel->free) {
+            if(!$panel || !$panel->panel->free) {
                 $panel = Panel::find(3);
             } else {
                 $panel = $user->panel->panel;
