@@ -69,9 +69,12 @@ class ApiPanelController extends Controller
                 $panel = $user->panel->where('current', true)->first();
             }
 
-            if(!$panel || !$panel->panel->free) {
+            if(!$panel) {
                 $panel = Panel::find(3);
             } else {
+                if(!$panel->panel->free) {
+                    $panel = Panel::find(3);
+                }
                 $panel = $user->panel->panel;
             }
 
