@@ -71,11 +71,12 @@ class ApiPanelController extends Controller
 
             if(!$panel) {
                 $panel = Panel::find(3);
-            } else {
+            } else {            
                 if(!$panel->panel->free) {
                     $panel = Panel::find(3);
+                } else {
+                    $panel = $user->panel->panel;
                 }
-                $panel = $user->panel->panel;
             }
 
             return view('panel.panel', [
