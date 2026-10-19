@@ -64,7 +64,7 @@ class ApiPanelController extends Controller
             );
 
             if(!$user->panel) {
-                $panel = Panel::find(3);
+                $panel = false;
             } else {
                 $panel = $user->panel->where('current', true)->first();
             }
@@ -72,7 +72,7 @@ class ApiPanelController extends Controller
             if(!$panel) {
                 $panel = Panel::find(3);
             } else {
-                if(!$panel->free) {
+                if(!$panel->panel->free) {
                     $panel = Panel::find(3);
                 }
                 $panel = $user->panel->panel;
@@ -127,7 +127,11 @@ class ApiPanelController extends Controller
             'pc_hash' => $pchash
         ]);
 
-        $panel = $user->panel->where('current', true)->first();
+        if(!$user->panel) {
+            $panel = false;
+        } else {
+            $panel = $user->panel->where('current', true)->first();
+        }
 
         if(!$panel) {
             $panel = Panel::find(3);
